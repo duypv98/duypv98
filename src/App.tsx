@@ -2,9 +2,9 @@ import {
   createBrowserRouter, RouterProvider
 } from "react-router-dom";
 import './App.scss';
-import { routerObjects } from "./pages";
+import { appBaseName, routerObjects } from "./pages";
 
-const router = createBrowserRouter(routerObjects, { basename: "/duypv98" });
+const router = createBrowserRouter(routerObjects, { basename: appBaseName });
 
 function App() {
   return (<>

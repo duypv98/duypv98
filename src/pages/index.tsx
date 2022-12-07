@@ -28,3 +28,5 @@ export const routerObjects: Array<RouteObject & { title?: string; children?: Arr
     ]
   }
 ];
+
+export const appBaseName = "/duypv98";

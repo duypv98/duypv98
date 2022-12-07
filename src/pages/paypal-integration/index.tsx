@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link, useMatches } from "react-router-dom";
-import { routerObjects } from "..";
+import { appBaseName, routerObjects } from "..";
 import Layout from "../../components/Layout";
 import MarkdownContent from "../../components/MarkdownContent";
 
@@ -25,7 +25,7 @@ const PayPalIntegrationPage = () => {
       </div>)}
     </div>
     <div className="page-content">
-      {!!src && <MarkdownContent src={`/docs/paypal-integration${src}.md`} />}
+      {!!src && <MarkdownContent src={`${appBaseName}/docs/paypal-integration${src}.md`} />}
     </div>
   </Layout>;
 }
