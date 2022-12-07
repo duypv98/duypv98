@@ -4,7 +4,7 @@ import {
 import './App.scss';
 import { routerObjects } from "./pages";
 
-const router = createBrowserRouter(routerObjects);
+const router = createBrowserRouter(routerObjects, { basename: "/duypv98" });
 
 function App() {
   return (<>
