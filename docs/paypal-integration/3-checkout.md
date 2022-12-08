@@ -54,3 +54,25 @@ export default function App() {
 }
 
 ```
+
+For subscription
+
+```jsx
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
+export default function App() {
+  return (
+    <PayPalScriptProvider options={{ "client-id": "test", vault: true, intent: "subscription"  }}>
+      <PayPalButtons
+        createSubscription={(data, actions) => {
+          // Create Subscriptoin
+        }}
+        onApprove={(data, actions) => {
+          // Capture subscription
+        }}
+      />
+    </PayPalScriptProvider>
+  );
+}
+
+```
