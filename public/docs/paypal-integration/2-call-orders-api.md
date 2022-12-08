@@ -4,7 +4,7 @@
 
 ```ts
 async function createOrder() {
-  const accessToken = generateAccessToken();
+  const accessToken = await generateAccessToken();
   const url = `${base}/v2/checkout/orders`;
   const response = await fetch(url, {
     method: "post",
@@ -34,7 +34,7 @@ async function createOrder() {
 
 ```ts
 async function capturePayment(orderId: string) {
-  const accessToken = generateAccessToken();
+  const accessToken = await generateAccessToken();
   const url = `${base}/v2/checkout/orders/${orderId}/capture`;
   const response = await fetch(url, {
     method: "post",
@@ -158,4 +158,48 @@ Capture Payment Response
     }
   ]
 }
+```
+
+## Create & Cancel Subscription
+
+```ts
+async function createSubscription(custom_id) {
+  const accessToken = await generateAccessToken();
+  const url = `${base}/v1/billing/subscriptions`;
+    const response = await fetch(url, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`
+    },
+    body: JSON.stringify({
+      // TODO: save plan to db
+      plan_id: "P-7BA41733L5840891AMOIVBXA",
+      custom_id,
+      quantity: "1",
+      start_time: moment().add(60, "seconds").toISOString()
+    })
+  });
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
+
+async function cancelSubscription(planId) {
+  const accessToken = await generateAccessToken();
+  const url = `${base}/v1/billing/subscriptions/${planId}/cancel`;
+  const response = await fetch(url, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`
+    },
+    body: JSON.stringify({
+      reason: "User unsubscribe"
+    })
+  });
+  const data = response.status; // 204, 422
+  return data;
+}
+
 ```
