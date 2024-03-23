@@ -29,4 +29,4 @@ export const routerObjects: Array<RouteObject & { title?: string; children?: Arr
   }
 ];
 
-export const appBaseName = "/duypv98";
+export const appBaseName = process.env.NODE_ENV === "production" ? "/duypv98" : undefined;
