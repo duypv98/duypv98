@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useRef, useContext, useMemo, useState } from "react";
+import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 
 export type SiteContextProps = {
@@ -12,7 +12,7 @@ const SiteContext = createContext<SiteContextProps>({
   }
 });
 
-export const SiteContextProvider = (props: PropsWithChildren<{}>) => {
+export const  SiteContextProvider = (props: PropsWithChildren<{}>) => {
   const [title, setTitle] = useState<string>()
 
   return <SiteContext.Provider value={{

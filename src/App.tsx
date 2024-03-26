@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   createBrowserRouter,
   RouterProvider
@@ -10,7 +11,12 @@ const router = createBrowserRouter(routerObjects, { basename: appBaseName });
 
 function App() {
   return (<SiteContextProvider>
-    <RouterProvider router={router} />
+    <a href="#content" className="skip-to-content">Skip to Content</a>
+    <div id="content">
+      <main className="main-content">
+        <RouterProvider router={router} />
+      </main>
+    </div>
   </SiteContextProvider>);
 }
 

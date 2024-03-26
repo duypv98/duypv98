@@ -1,4 +1,23 @@
-* {
-  margin: 0;
-  box-sizing: border-box;
+.skip-to-content {
+  color: var(--jf-secondary-color);
+  background-color: transparent;
+  border: 1px solid var(--jf-secondary-color);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  line-height: 1;
+  text-decoration: none;
+  padding: 1.25rem 1.75rem;
+  transition: var(--transition);
+  position: absolute;
+  top: auto;
+  left: -999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -99;
+}
+
+.main-content {
+  background-color: var(--jf-primary-color);
 }

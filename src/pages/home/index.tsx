@@ -1,10 +1,12 @@
-import { useEffect, useRef } from "react";
+import About from "../../components/home/About";
 import styles from "./home.module.scss";
 
 const HomePage = () => {
-    return <>
-    <div className={styles["snap-page-scroll-container"]}>
-      <section className="">Page 1</section>
+  return <>
+    <div id="home" className={styles["snap-page-scroll-container"]}>
+      <section id="about">
+        <About />
+      </section>
       <section className="">Page 2</section>
       <section className="">Page 3</section>
       <section className="">Page 4</section>

@@ -1,3 +1,63 @@
+$avatar-size: 280px;
+
 .root {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: flex-start;
+  height: 100%;
+
+  .sectionRow {
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      gap: 12px;
+    }
+  }
+
+  .aboutTitle {
+    font-size: 24px !important;
+    margin: 0;
+  }
+
+  .fullName {
+    display: block;
+    font-size: 48px;
+  }
+
+  .altName {
+    display: block;
+    font-size: 48px;
+  }
+
+  .descText {
+    font-size: 20px;
+  }
+
+  .typingAnimation {
+    &::after {
+      content: "_" !important;
+    }
+
+    &.fullName,
+    &.altName {
+      &::after {
+        animation: none !important;
+      }
+    }
+  }
+
+  .avatarCarousel {
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .avatar {
+    width: $avatar-size;
+    height: $avatar-size;
+    object-fit: contain;
+    border-radius: 50%;
+  }
 }
