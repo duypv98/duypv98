@@ -7,7 +7,7 @@ const Layout = (props: PropsWithChildren) => {
   const matches = useMatches();
   useEffect(() => {
     const routerObject = routerObjects.find((e) => e.path === matches[0]?.pathname);
-    document.title = routerObject?.title ?? "";
+    if (routerObject) document.title = routerObject?.title ?? "";
     return () => {
       document.title = "";
     }
