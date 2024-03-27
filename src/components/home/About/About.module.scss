@@ -1,4 +1,5 @@
 $avatar-size: 280px;
+$avatar-small-size: 140px;
 
 .root {
   display: flex;
@@ -20,18 +21,28 @@ $avatar-size: 280px;
     margin: 0;
   }
 
-  .fullName {
-    display: block;
-    font-size: 48px;
-  }
-
+  .fullName,
   .altName {
     display: block;
     font-size: 48px;
+    font-weight: 700;
+    text-shadow: 0 0 1px #fff,
+      0 0 2px #fff,
+      0 0 5px #fff,
+      0 0 10px #0fa,
+      0 0 20px #0fa,
+      0 0 23px #0fa,
+      0 0 27px #0fa,
+      0 0 37px #0fa;
+
+    @media (max-width: 576px) {
+      font-size: 36px;
+    }
   }
 
   .descText {
     font-size: 20px;
+    margin-top: 12px;
   }
 
   .typingAnimation {
@@ -42,6 +53,7 @@ $avatar-size: 280px;
     &.fullName,
     &.altName {
       &::after {
+        content: "." !important;
         animation: none !important;
       }
     }
@@ -52,6 +64,13 @@ $avatar-size: 280px;
     height: $avatar-size;
     border-radius: 50%;
     overflow: hidden;
+    margin: 0 auto;
+
+    @media (max-width: 576px) {
+      width: $avatar-small-size;
+      height: $avatar-small-size;
+      margin: auto;
+    }
   }
 
   .avatar {
@@ -59,5 +78,37 @@ $avatar-size: 280px;
     height: $avatar-size;
     object-fit: contain;
     border-radius: 50%;
+
+    @media (max-width: 576px) {
+      width: $avatar-small-size;
+      height: $avatar-small-size;
+    }
   }
+}
+
+.contact {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.4s ease-in-out;
+
+  &.contact-fixed {
+    position: fixed;
+    flex-direction: column; 
+    right: 24px;
+    bottom: 30vh;
+  }
+}
+
+.contact.contact-fixed::after {
+  content: "";
+  width: 2px;
+  height: 30vh;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  background-color: var(--jf-primary-text-color);
 }
